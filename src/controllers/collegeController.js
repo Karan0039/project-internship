@@ -50,7 +50,7 @@ const createCollege = async function (req, res) {
         }
 
         const college = await collegeModel.create(body);
-        res.status(201).send({ status: true, msg: " college create successfilly", data: college })
+        res.status(201).send({ status: true, data: college })
     }
     catch (err) {
         res.status(500).send({ status: false, error: err.message })
