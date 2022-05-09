@@ -42,16 +42,17 @@ const createIntern = async function (req, res) {
                 error.push("mobile number is required in body")
 
             //checks for valid mobile number
-            function isValid(x, y) {
+            function isValid(x, y, z) {
                 if (isNaN(y))
                     return true;
-                else if ((x[0] == 9 || x[0] == 8 || x[0] == 7 || x[0] == 6) && x.length == 10)
+                else if ((z[0] == 9 || z[0] == 8 || z[0] == 7 || z[0] == 6) && x.length == 10 && z.length==10)
                     return false;
                 else return true;
             }
-            let y = parseInt(data.mobile)
-            let x = y.toString()
-            if (data.mobile && isValid(x, y))
+            let x=data.mobile.trim()
+            let y = parseInt(x)
+            let z = y.toString()
+            if (data.mobile && isValid(x, y, z))
                 error.push("Enter valid mobile number")
 
             //check unique mobile

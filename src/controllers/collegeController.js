@@ -70,7 +70,7 @@ const getColleges = async function (req, res) {
         if (!data.collegeName)
             return res.status(400).send({ status: false, msg: "only collegeName is allowed in query" })
 
-        let collegeDetail = await collegeModel.findOne({ name: data.collegeName, isDeleted: false }).collation({ locale: "en", strength: 2 })
+        let collegeDetail = await collegeModel.findOne({ name: data.collegeName, isDeleted: false }).collation({ locale: "en", strength: 2 }) 
 
         //check collegeDetails are found or not
         if (!collegeDetail)
